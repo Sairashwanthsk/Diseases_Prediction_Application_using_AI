@@ -1,0 +1,64 @@
+{% extends 'base.html' %} {% block title %}Malaria{% endblock %} {% block body
+%} {% include 'includes/navigation.html' %}
+<section class="page" id="malaria">
+  <h1 style="margin: 0px 0px 0px 20px;">DPAI</h1>
+  <div class="container">
+    <div id="left_m" class="col-md-3">
+      {% with messages = get_flashed_messages(with_categories=true) %} {% if
+      messages %} {% for category, message in messages %}
+      <div class="alert alert-{{ category }}">
+        {{ message }}
+      </div>
+      {% endfor %} {% endif %} {% endwith %} {% block content %}{% endblock %}
+    </div>
+  
+    <h3
+      style="
+        width: 80%;
+        margin-top: 20px;
+      "
+    >
+      MALARIA Disease PREDICTION
+    </h3>
+  
+    <div style="text-align: center; margin-top: 20px;">
+      <img
+        style="max-width: 600px;"
+        src="{{ url_for('static', filename='malaria_image.jpg') }}"
+      />
+    </div>
+  
+    <form
+      action="{{url_for('upload_file_malaria')}}"
+      method="post"
+      enctype="multipart/form-data"
+      style="margin: 30px 0px 0px 0px; width: 100%; text-align: center;"
+      onsubmit="showloading()"
+    >
+      <span class="btn btn-default btn-file">
+        Select Image
+        <input type="file" name="image" class="btn btn-default" required/>
+      </span>
+      <br>
+      <input type="submit" value="Upload" class="btn btn-primary" />
+    </form>
+    <hr />
+    <div style="text-align: center;">
+      <img
+        id="loading_image"
+        style="display: none;"
+        src="{{ url_for('static', filename='loading.gif')}}"
+      />
+    </div>
+  </div>
+</section>
+
+{% include 'includes/footer.html' %}
+
+<script>
+  function showloading() {
+    image = document.getElementById('loading_image')
+    image.style.display = 'inline'
+  }
+</script>
+{% endblock %}

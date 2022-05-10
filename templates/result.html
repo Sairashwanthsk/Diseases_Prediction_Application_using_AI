@@ -1,0 +1,21 @@
+{% extends 'base.html' %} {% block title %}{{ disease }} result{% endblock %} {% block
+body%} {% include 'includes/navigation.html' %}
+<div class="page">
+  <h1 style="margin: 0px 0px 0px 20px;">DPAI</h1>
+  <div class="container">
+    <h3>{{ disease }} Prediction :</h3>
+    <div class="col-md-12" style="text-align:center; height:100%">
+      <h2>The result is :</h2>
+      {% if 'Sorry' in prediction %}
+        <h3 style="color: red;">{{ prediction }}</h3>
+        {% else %}
+        <h3 style="color: green;">{{ prediction }}</h3>
+      {% endif %}
+      <a href="{{url_for(route)}}"><input type="button" value="Predict another" class="btn btn-primary" style="margin: 40px 0px 0px 0px;"></a>
+    </div>
+  </div>
+</div>
+
+	{% include 'includes/footer.html' %}
+  {% endblock %}
+

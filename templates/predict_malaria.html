@@ -1,0 +1,25 @@
+{% extends 'base.html' %} 
+{% block title %}Malaria Result{% endblock %} 
+{% block body %} 
+{% include 'includes/navigation.html' %}
+  <div class="page">
+    <h1 style="margin: 0px 0px 0px 20px;">DPAI</h1>
+    <div class="container">
+      <h4 style="margin: 20px 0px 0px 0px; text-transform: uppercase">Malaria Disease Prediction</h4>
+      <div style="width: 90%; margin: auto; text-align: center;">
+          <img src="{{ url_for('send_file', filename=image_file_name)}}" style ="max-width: 500px; max-height: 400px; margin-top: 30px; margin-bottom: 10px">
+          <p style="font-style: italic">{{ image_file_name }}</p>
+      
+          {% if label == 'Uninfected' %}
+            <h3 style="margin-top: 40px"><b>Predicted : <span style="color: green">{{ label }}</span></b></h3>
+            {% else %}
+            <h3 style="margin-top: 40px"><b>Predicted : <span style="color: red">{{ label }}</span></b></h3>
+          {% endif %}
+          <h3><b>Accuracy : <span style="color: green;">{{ accuracy }} %</span></b></h3>
+        <a href="{{url_for('malaria')}}" style="position:relative;top:40px"><input type="button" class="btn btn-primary" value="Predict another"></a>
+      </div>
+    </div>
+  </div>
+
+{% include 'includes/footer.html' %}
+{% endblock %}

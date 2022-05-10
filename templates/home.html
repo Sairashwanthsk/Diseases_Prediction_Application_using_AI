@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %}Home{% endblock title %}
+{% block body %}
+
+  {% include 'includes/navigation.html' %}
+  <section class="page" id="home">
+    <div class= "home-container">
+      <div id="slider">
+        <figure>
+          <img src="{{ url_for('static', filename='home_image.jpg')}}" alt="">
+          <img src="{{ url_for('static', filename='cancer_image.jpg')}}" alt="">
+          <img src="{{ url_for('static', filename='diabetes_image.jpg')}}" alt="">
+          <img src="{{ url_for('static', filename='heart_image.jpg')}}" alt="">
+          <img src="{{ url_for('static', filename='liver_image.jpg')}}" alt="">
+          <img src="{{ url_for('static', filename='kidney_image.jpg')}}" alt="">
+          <img src="{{ url_for('static', filename='malaria_image.jpg')}}" alt="">
+        </figure>
+      </div>
+    </div>
+  </section>
+{% include 'includes/footer.html' %}
+
+{% endblock %}
+  

@@ -1,0 +1,24 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+flask = "*"
+python-dotenv = "*"
+scikit-learn = "==0.22.1"
+tensorflow = "*"
+pandas = "*"
+pillow = "*"
+imblearn = "*"
+gunicorn = "*"
+itsdangerous = "*"
+markupsafe = "*"
+werkzeug = "*"
+numpy = "*"
+click = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.8"

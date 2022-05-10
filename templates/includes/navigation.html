@@ -1,0 +1,104 @@
+
+
+<nav class="sidebar close">
+    <header>
+        <div class="image-text">
+            <span class="image">
+                <!--<img src="logo.png" alt="">-->
+            </span>
+
+            <div class="text logo-text">
+                <span class="name">DPAI</span>
+                <span class="profession">Doctor's Assistant</span>
+            </div>
+        </div>
+
+        <i class='fa fa-chevron-right toggle' onclick="sidebarClose()"></i>
+    </header>
+
+    <div class="menu-bar">
+        <div class="menu">
+            {# <li class="search-box">
+                <i class='fa fa-search icon'></i>
+                <input type="text" placeholder="Search...">
+            </li> #}
+
+            <ul class="menu-links">
+                <li class="nav-link">
+                    <a href="{{url_for('home')}}" class="home active">
+                        <i class='fa fa-home icon' ></i>
+                        <span class="text nav-text">Home</span>
+                    </a>
+                </li>
+
+                <li class="nav-link">
+                    <a href="{{url_for('cancer')}}" class="cancer">
+                        <i class='fa-solid fa-ribbon icon'></i>
+                        <span class="text nav-text">Breast Cancer</span>
+                    </a>
+                </li>
+
+                <li class="nav-link">
+                    <a href="{{url_for('diabetes')}}" class="diabetes">
+                        <i class='fa fa-droplet icon' ></i>
+                        <span class="text nav-text">Diabetes</span>
+                    </a>
+                </li>
+
+                <li class="nav-link">
+                    <a href="{{url_for('heart')}}" class="heart">
+                        <i class='fa fa-heartbeat icon'></i>
+                        <span class="text nav-text">Heart</span>
+                    </a>
+                </li>
+
+                <li class="nav-link">
+                    <a href="{{url_for('liver')}}" class="liver">
+                        <i class='fa fa-disease icon'></i>
+                        <span class="text nav-text">Liver</span>
+                    </a>
+                </li>
+                <li class="nav-link">
+                    <a href="{{url_for('kidney')}}" class="kidney">
+                        <i class="fa fa-bacteria icon"></i>
+                        <span class="text nav-text">Kidney</span>
+                    </a>
+                </li>
+                <li class="nav-link">
+                    <a href="{{url_for('malaria')}}" class="malaria">
+                        <i class="fa fa-mosquito icon"></i>
+                        <span class="text nav-text">Malaria</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        {# <div class="bottom-content">
+            <li class="">
+                <a href="#">
+                    <i class='fa fa-log-out icon' ></i>
+                    <span class="text nav-text">Logout</span>
+                </a>
+            </li>
+
+            <li class="mode">
+                <div class="sun-moon">
+                    <i class='fa fa-moon icon moon'></i>
+                    <i class='fa fa-sun icon sun'></i>
+                </div>
+                <span class="mode-text text">Dark mode</span>
+
+                <div class="toggle-switch">
+                    <span class="switch"></span>
+                </div>
+            </li>
+            
+        </div> #}
+    </div>
+
+</nav>
+
+<script>
+    
+
+</script>

@@ -1,0 +1,96 @@
+{% extends 'base.html' %} {% block title %}Kidney{% endblock %} {% block body %}
+{% include 'includes/navigation.html' %}
+<section class="page" id="kidney">
+  <div class="container">
+    <h1>DPAI</h1>
+    <h4>Predict Diabetes :</h4>
+    <div class="form-body">
+      <form action="{{url_for('result')}}" method="POST">
+        <div class="col-md-12 row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="age">Age :</label>
+              <input class="form-control" type="text" id="age" name="age" />
+            </div>
+            <div class="form-group">
+              <label for="bp">Blood Pressure (BP) :</label>
+              <input class="form-control" type="text" id="bp" name="bp" />
+            </div>
+            <div class="form-group">
+              <label for="al">Albumin (AL) :</label>
+              {# <input class="form-control" type="text" id="al" name="al" /> #}
+              <select name="al" id="al" class="form-control">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="pcc">Pus Cell Clumps (PCC) :</label>
+              {# <input class="form-control" type="text" id="pcc" name="pcc" /> #}
+              <select name="pcc" id="pcc" class="form-control">
+                <option value="1">Present</option>
+                <option value="0">Not present</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="bgr">Blood Glucose Random in mgs/dl :</label>
+              <input class="form-control" type="text" id="bgr" name="bgr" />
+            </div>
+            <div class="form-group">
+              <label for="bu">Blood Urea (B.U) in mgs/dl :</label>
+              <input class="form-control" type="text" id="bu" name="bu" />
+            </div>
+            <div class="form-group">
+              <label for="sc">Serum Creatinine (S.C) in mgs/dl :</label>
+              <input class="form-control" type="text" id="sc" name="sc" />
+            </div>
+            <div class="form-group">
+              <label for="hemo">Haemoglobin in gms :</label>
+              <input class="form-control" type="text" id="hemo" name="hemo" />
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="pcv">Packed Cell Volume (PCV) :</label>
+              <input class="form-control" type="text" id="pcv" name="pcv" />
+            </div>
+            <div class="form-group">
+              <label for="htn">Hypertension (HTN):</label>
+              {# <input class="form-control" type="text" id="htn" name="htn" /> #}
+              <select name="htn" id="htn" class="form-control">
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="dm">Diabetes Mellitus (D.M) :</label>
+              {# <input class="form-control" type="text" id="dm" name="dm" /> #}
+              <select name="dm" id="dm" class="form-control">
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="appet">Appetite :</label>
+              {# <input class="form-control" type="text" id="appet" name="appet" /> #}
+              <select name="appet" id="appet" class="form-control">
+                <option value="1">Good</option>
+                <option value="0">Poor</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <input class="btn btn-primary" type="submit" value="Submit" />
+      </form>
+    </div>
+  </div>
+</section>
+
+	{% include 'includes/footer.html' %}
+  {% endblock %}

@@ -1,0 +1,89 @@
+{% extends 'base.html' %} {% block title %}Liver{% endblock %} {% block body %}
+{% include 'includes/navigation.html' %}
+<section class="page" id="liver">
+  <div class="container">
+    <h1>DPAI</h1>
+    <h4>Predict Liver Disease :</h4>
+    <div class="form-body">
+      <form action="{{url_for('result')}}" method="POST">
+        <div class="col-md-12 row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="Age">Age :</label>
+              <input class="form-control" type="text" id="Age" name="Age" required />
+            </div>
+            <div class="form-group">
+              <label for="Gender">Gender :</label>
+              {# <input class="form-control" type="text" id="Gender" name="Gender" required /> #}
+              <select name="Gender" id="gender" class="form-control" required>
+                <option value="1">Female</option>
+                <option value="0">Male</option>
+                <option value="0">Others</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="Total_Bilirubin">Total Bilirubin :</label>
+              <input class="form-control" type="text" id="Total_Bilirubin" name="Total_Bilirubin" required />
+            </div>
+            <div class="form-group">
+              <label for="Direct_Bilirubin">Direct Bilirubin :</label>
+              <input class="form-control" type="text" id="Direct_Bilirubin" name="Direct_Bilirubin" required />
+            </div>
+            <div class="form-group">
+              <label for="Alkaline_Phosphotase">Alkaline Phosphotase :</label>
+              <input class="form-control"
+                type="text"
+                id="Alkaline_Phosphotase"
+                name="Alkaline_Phosphotase"
+              required />
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="Alamine_Aminotransferase">
+                Alamine Aminotransferase :
+              </label>
+              <input class="form-control"
+                type="text"
+                id="Alamine_Aminotransferase"
+                name="Alamine_Aminotransferase"
+              required />
+            </div>
+            <div class="form-group">
+              <label for="Aspartate_Aminotransferase">
+                Aspartate Aminotransferase :
+              </label>
+              <input class="form-control"
+                type="text"
+                id="Aspartate_Aminotransferase"
+                name="Aspartate_Aminotransferase"
+              required />
+            </div>
+            <div class="form-group">
+              <label for="Total_Protiens">Total Protiens :</label>
+              <input class="form-control" type="text" id="Total_Protiens" name="Total_Protiens" required />
+            </div>
+            <div class="form-group">
+              <label for="Albumin">Albumin :</label>
+              <input class="form-control" type="text" id="Albumin" name="Albumin" required />
+            </div>
+            <div class="form-group">
+              <label for="Albumin_and_Globulin_Ratio">
+                Albumin and Globulin Ratio :
+              </label>
+              <input class="form-control"
+                type="text"
+                id="Albumin_and_Globulin_Ratio"
+                name="Albumin_and_Globulin_Ratio"
+              required />
+            </div>
+          </div>
+        </div>
+        <input class="btn btn-primary" type="submit" value="Submit" />
+      </form>
+    </div>
+  </div>
+</section>
+
+	{% include 'includes/footer.html' %}
+  {% endblock %}

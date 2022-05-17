@@ -123,7 +123,7 @@ def upload_file_malaria():
             full_name = os.path.join(UPLOAD_FOLDER, file.filename)
             file.save(full_name)
 
-            indices = {0: 'PARASITIC', 1: 'Uninfected', 2: 'Invasive carcinomar', 3: 'Normal'}
+            indices = {0: 'PARASITIC', 1: 'Uninfected'}
             result = api_malaria(full_name)
             print(result)
 

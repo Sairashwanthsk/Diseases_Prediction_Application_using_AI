@@ -5,44 +5,23 @@ from sklearn.model_selection import cross_validate
 from imblearn.over_sampling import SMOTE
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
+from sklearn.model_selection import train_test_split
+random_state=42
 import joblib
 
-data=pd.read_csv("./datasets/indian_liver_patient.csv")
-data=data.fillna(method="ffill")
-data['Gender'] = data['Gender'].apply(lambda x:1 if x=='Male' else 0)
-data['Dataset'] = data['Dataset'].apply(lambda x:1 if x==2 else 0)
-data['Total_Bilirubin'] = np.log(data["Total_Bilirubin"])
-data['Direct_Bilirubin'] = np.log(data["Direct_Bilirubin"])
-data['Alkaline_Phosphotase'] = np.log(data["Alkaline_Phosphotase"])
-data['Alamine_Aminotransferase'] = np.log(data["Alamine_Aminotransferase"])
-data['Aspartate_Aminotransferase'] = np.log(data["Aspartate_Aminotransferase"])
-data['Total_Protiens'] = np.log(data["Total_Protiens"])
-data['Albumin'] = np.log(data["Albumin"])
-data['Albumin_and_Globulin_Ratio'] = np.log(data["Albumin_and_Globulin_Ratio"])
-
-# X=data[['Age', 'Gender', 'Total_Bilirubin', 'Direct_Bilirubin',
-#        'Alkaline_Phosphotase', 'Alamine_Aminotransferase',
-#        'Aspartate_Aminotransferase', 'Total_Protiens', 'Albumin',
-#        'Albumin_and_Globulin_Ratio']]
-# y=data['Dataset']
-
-# X_train,X_test,y_train,y_test=train_test_split(X,y,test_size=0.3,random_state=123)
-target=data["Dataset"]
-data=data.drop(["Dataset"],axis=1)
-
-# print(results)
-# print("Accuracy:",results.mean()*100)
+patients=pd.read_csv("./datasets/indian_liver_patient.csv")
+patients['Gender']=patients['Gender'].apply(lambda x:1 if x=='Male' else 0)
+patients['Dataset'] = patients['Dataset'].apply(lambda x:1 if x==2 else 0)
+patients=patients.fillna(0.94)
+np.random.shuffle(patients.values)
+target=patients["Dataset"]
+source=patients.drop(["Dataset"],axis=1)
 sm=SMOTE()
 sc=StandardScaler()
-data=sc.fit_transform(data)
-
 lr=LogisticRegression()
-lr.fit(data,target)
-
-cv_results = cross_validate(lr, data,target, cv=10)
-print(cv_results)
-# print(cv)
+source=sc.fit_transform(source)
+X_train,X_test,y_train,y_test= train_test_split(source,target,test_size=0.01)
+X_train, y_train=sm.fit_resample(X_train,y_train)
+cv=cross_validate(lr,X_train,y_train,cv=10)
+lr.fit(X_train,y_train)
 joblib.dump(lr,"./model_liver")
-
-
-

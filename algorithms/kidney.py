@@ -54,17 +54,3 @@ a11=cross_validate(lr,source,target, cv=10)
 print(a11)
 joblib.dump(lr,"./model_kidney")
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
